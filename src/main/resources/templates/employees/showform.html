@@ -1,0 +1,44 @@
+<!doctype html>
+<html xmlns:th="http://thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add New User</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+
+    
+    <div class="container">
+		<h3>User Directory</h3>
+		<hr>
+		<h2>Save Employee</h2><br>
+		
+		<form action="#" th:action="@{/save}" th:object="${employee}" method="POST">
+			<input type="text" th:field="*{phone_number}"  placeholder="6545453535"/>
+			<br><br>
+		    <input type="text" th:field="*{firstName}" placeholder="firstName"/><span th:if="${#fields.hasErrors('firstName')}"
+					th:errors="*{firstName}"
+					class="error"></span> 
+		    <br><br>
+		    <input type="text" th:field="*{lastName}" placeholder="lastName"/><span th:if="${#fields.hasErrors('lastName')}"
+					th:errors="*{lastName}"
+					class="error"></span> 
+		    <br><br>
+		    <input type="text" th:field="*{email}" placeholder="email@gmail.com"/><span th:if="${#fields.hasErrors('email')}"
+					th:errors="*{email}"
+					class="error"></span> 
+		    <br><br>
+		     <input type="password" th:field="*{password}" placeholder="email@gmail.com"/><span th:if="${#fields.hasErrors('password')}"
+					th:errors="*{password}"
+					class="error"></span> 
+		    <br><br>
+		    <button type="submit" class="btn btn-info">Save</button>
+		    
+		    <a th:href="@{/list}" class="btn">Back to List</a>
+			
+		</form>
+	</div>
+    
+    
+  </body>
+</html>
